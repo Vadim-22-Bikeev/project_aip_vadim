@@ -13,11 +13,11 @@ keyboard_goal = InlineKeyboardMarkup(
                      [balance_weight],[loss_weight]])
 # Этот хэндлер будет срабатывать на команду "/start"
 # и отправлять в чат клавиатуру с инлайн-кнопками
-@dp.callback(F.data =='Very_low')
-@dp.callback(F.data =='Low')
-@dp.callback(F.data =='Middle')
-@dp.callback(F.data =='Hard')
-async def goal(callback_query: CallbackQuery):
+@dp.callback_query(F.data =='Very_low')
+@dp.callback_query(F.data =='Low')
+@dp.callback_query(F.data =='Middle')
+@dp.callback_query(F.data =='Hard')
+async def goal(callback: CallbackQuery):
     await callback.answer(
         text='Выберите вашу цель:',
         reply_markup=keyboard_goal)
