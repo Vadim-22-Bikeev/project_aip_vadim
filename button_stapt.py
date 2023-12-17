@@ -10,12 +10,12 @@ dp = Dispatcher()
 # Создаем объекты инлайн-кнопок
 start_countind_day = InlineKeyboardButton(
     text='Начать учет дня',
-    callback_data='PASS')
+    callback_data='new_day')
 view_statistics = InlineKeyboardButton(
     text='Посмотреть статистику',
     callback_data='PASS')
 # Создаем объект инлайн-клавиатуры
-keyboard = InlineKeyboardMarkup(
+keyboard_start = InlineKeyboardMarkup(
     inline_keyboard=[[start_countind_day],
                      [view_statistics]])
 # Этот хэндлер будет срабатывать на команду "/start"
@@ -24,6 +24,6 @@ keyboard = InlineKeyboardMarkup(
 async def process_start_command(message: Message):
     await message.answer(
         text='Выберите опцию:',
-        reply_markup=keyboard)
+        reply_markup=keyboard_start)
 if __name__ == '__main__':
     dp.run_polling(bot)

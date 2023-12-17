@@ -10,17 +10,17 @@ dp = Dispatcher()
 # Создаем объекты инлайн-кнопок
 calc_PFC = InlineKeyboardButton(
     text='Расчет БЖУ',
-    callback_data='PASS')
+    callback_data = 'PFC')
 
 # Создаем объект инлайн-клавиатуры
-keyboard = InlineKeyboardMarkup(
+keyboard_PFC = InlineKeyboardMarkup(
     inline_keyboard=[[calc_PFC]])
 # Этот хэндлер будет срабатывать на команду "/start"
 # и отправлять в чат клавиатуру с инлайн-кнопками
-@dp.message(CommandStart())
-async def process_start_command(message: Message):
-    await message.answer(
+@dp.callback_query(F.data == 'new_day')
+async def norm_pfc(callback: CallbackQuery):
+    await callback.answer(
         text='Нажмите на кнопку:',
-        reply_markup=keyboard)
+        reply_markup = keyboard_PFC)
 if __name__ == '__main__':
     dp.run_polling(bot)

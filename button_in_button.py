@@ -10,20 +10,20 @@ dp = Dispatcher()
 # Создаем объекты инлайн-кнопок
 man = InlineKeyboardButton(
     text='Мужчина',
-    callback_data='PASS')
+    callback_data='man')
 woman = InlineKeyboardButton(
     text='Женщина',
-    callback_data='PASS')
+    callback_data='woman')
 # Создаем объект инлайн-клавиатуры
-keyboard = InlineKeyboardMarkup(
+keyboard_qender = InlineKeyboardMarkup(
     inline_keyboard=[[man],
                      [woman]])
 # Этот хэндлер будет срабатывать на команду "/start"
 # и отправлять в чат клавиатуру с инлайн-кнопками
-@dp.message(CommandStart())
-async def process_start_command(message: Message):
-    await message.answer(
+@dp.callback_query(F.data =='PFC')
+async def gender(callback: CallbackQuery):
+    await callback.answer(
         text='Выберите ваш пол:',
-        reply_markup=keyboard)
+        reply_markup=keyboard_qender)
 if __name__ == '__main__':
     dp.run_polling(bot)
