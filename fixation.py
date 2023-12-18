@@ -11,7 +11,7 @@ keyboard_fixation = InlineKeyboardMarkup(
                      [end_day]])
  
 @dp.callback_query(F.data == 'go_goal')
-async def norm_pfc(callback: CallbackQuery):
+async def fixat(callback: CallbackQuery):
     await bot.send_message(
         chat_id=f'{callback.from_user.id}',
         text='Выберите группу продуктов:',
@@ -49,7 +49,7 @@ keyboard_fixation = InlineKeyboardMarkup(
                      [t_2],[t_3],[t_4],[t_5],[t_6]])
 
 @dp.callback_query(F.data == 'go_fix')
-async def norm_pfc(callback: CallbackQuery):
+async def groups(callback: CallbackQuery):
     await bot.send_message(
         chat_id=f'{callback.from_user.id}',
         text='Нажмите на кнопку:',
@@ -57,6 +57,19 @@ async def norm_pfc(callback: CallbackQuery):
 
 
 
+keyboard_append = InlineKeyboardButton(
+    text='Записать съеденное',
+    callback_data = 'append')
+ 
+keyboard_fixation = InlineKeyboardMarkup(
+    inline_keyboard=[[keyboard_append]])
+ 
+@dp.callback_query(F.data == 'go_new')
+async def app(callback: CallbackQuery):
+    await bot.send_message(
+        chat_id=f'{callback.from_user.id}',
+        text='Выберите группу продуктов:',
+        reply_markup = keyboard_fixation)
 
 
 
