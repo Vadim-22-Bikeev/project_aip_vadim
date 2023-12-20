@@ -61,3 +61,80 @@ def difference(vals_r, vals_f):
     :return: The list is the difference between vals_f and vals_r
     :rtype: list of list
     """
+
+    def new_str(self, id: str, value: list[str]) -> None:
+
+        '''Adding a row to a table
+        \nlist[str] - values of all columns except id
+        \nIt looks like ['col_1', 'col_2', 'col_3', .......]
+
+        :param id: the unique identifier of the string
+        :type id: str
+        :param value: column values other than id
+        :type value: list[str]
+        :return: None
+        :rtype: None
+        '''
+
+
+    def del_str(self, id: str) -> None:
+
+'''Deletes a row from the table by its id.
+
+:param id: Line ID
+:type id: str
+:return: None
+'''    
+
+def del_str_special(self, datas: str, user_id: str) -> None:
+
+'''Special deletion of a row with a specific date and id for the status table.
+
+:param datas: Date of the line
+:type datas: str
+:param user_id: User ID
+:type user_id: str
+:return: None
+'''
+
+def change_one_str(self, id: str, col: str, value: str) -> None:
+
+'''Replaces one element from one column in a row by its id.
+
+:param id: Line ID
+:type id: str
+:param col: Column name
+:type col: str
+:param value: The new value of the element
+:type value: str
+:return: None
+'''
+
+
+def change_full_str(self, id: str, value: list) -> None:
+"""Replacing all elements in a row by its id (except the id itself)
+
+:param self: class object
+:type self: object
+:param id: line id
+:type id: str
+:param value: values of all columns except id
+:type value: list[str]
+:return: None
+:rtype: None
+"""
+
+
+
+def show_col(self, cols: list[str]) -> list:
+"""Returns all elements of columns(columns) by their names
+
+:param self: class object
+:type self: object
+:param cols: a list of the names of the necessary columns
+:type cols: list[str]
+:return: list of column elements
+:rtype: list
+"""
+
+
